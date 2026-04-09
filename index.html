@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>小红书内推 · 消费品行业专家岗位招募</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #FF2442;
+      --pink: #FF6B8A;
+      --cream: #FFF5F7;
+      --dark: #1A1A1A;
+      --gray: #555;
+      --gold: #FFB800;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #FF2442 0%, #FF6B8A 50%, #FFB3C1 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 60px 20px 80px;
+    }
+
+    /* floating bubbles */
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.15;
+      background: white;
+      animation: float linear infinite;
+    }
+    @keyframes float {
+      0%   { transform: translateY(110vh) scale(0.8); opacity: 0; }
+      10%  { opacity: 0.15; }
+      90%  { opacity: 0.15; }
+      100% { transform: translateY(-10vh) scale(1.1); opacity: 0; }
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.25);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 18px;
+      border-radius: 100px;
+      letter-spacing: 2px;
+      margin-bottom: 28px;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.4);
+      animation: fadeDown 0.8s ease both;
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 8vw, 80px);
+      font-weight: 900;
+      color: white;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      animation: fadeDown 0.9s 0.1s ease both;
+      text-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    }
+
+    .hero-title span {
+      background: linear-gradient(90deg, #fff 0%, #FFE0E6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      margin-top: 20px;
+      font-size: clamp(16px, 3vw, 22px);
+      color: rgba(255,255,255,0.9);
+      font-weight: 400;
+      animation: fadeDown 1s 0.2s ease both;
+      max-width: 560px;
+    }
+
+    /* reward pill */
+    .reward-strip {
+      margin-top: 44px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeDown 1s 0.35s ease both;
+    }
+
+    .reward-card {
+      background: white;
+      border-radius: 20px;
+      padding: 18px 28px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(255,36,66,0.25);
+      min-width: 160px;
+    }
+
+    .reward-card .amount {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--red);
+      line-height: 1;
+    }
+
+    .reward-card .label {
+      font-size: 13px;
+      color: var(--gray);
+      margin-top: 6px;
+    }
+
+    .reward-card.special .amount {
+      color: var(--gold);
+    }
+
+    .reward-card .badge {
+      display: inline-block;
+      background: var(--gold);
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 100px;
+      margin-top: 4px;
+      letter-spacing: 1px;
+    }
+
+    .hero-scroll {
+      margin-top: 48px;
+      color: rgba(255,255,255,0.7);
+      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .scroll-arrow {
+      width: 24px;
+      height: 24px;
+      border-right: 2px solid rgba(255,255,255,0.7);
+      border-bottom: 2px solid rgba(255,255,255,0.7);
+      transform: rotate(45deg);
+      animation: bounce 1.5s ease infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: rotate(45deg) translateY(0); }
+      50% { transform: rotate(45deg) translateY(6px); }
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
+
+    /* ===== SECTION COMMON ===== */
+    section { padding: 72px 20px; }
+
+    .section-label {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--red);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(26px, 5vw, 42px);
+      font-weight: 900;
+      color: var(--dark);
+      margin-bottom: 48px;
+      line-height: 1.2;
+    }
+
+    .container { max-width: 960px; margin: 0 auto; }
+
+    /* ===== INDUSTRIES ===== */
+    .industries-section { background: white; }
+
+    .industry-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+    }
+
+    .industry-card {
+      background: var(--cream);
+      border-radius: 20px;
+      padding: 28px 16px;
+      text-align: center;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .industry-card:hover {
+      border-color: var(--red);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(255,36,66,0.12);
+    }
+
+    .industry-card .icon { font-size: 36px; margin-bottom: 12px; display: block; }
+    .industry-card .name { font-size: 15px; font-weight: 700; color: var(--dark); }
+    .industry-card .dept { font-size: 12px; color: var(--gray); margin-top: 4px; }
+
+    /* ===== ROLES ===== */
+    .roles-section { background: var(--cream); }
+
+    .roles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .role-card {
+      background: white;
+      border-radius: 20px;
+      padding: 28px 22px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .role-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--red), var(--pink));
+    }
+
+    .role-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+    }
+
+    .role-card .role-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+    .role-card .role-name { font-size: 16px; font-weight: 700; color: var(--dark); }
+    .role-card .role-desc { font-size: 13px; color: var(--gray); margin-top: 8px; line-height: 1.6; }
+
+    /* ===== WHY ===== */
+    .why-section { background: linear-gradient(135deg, #1A1A1A, #2D2D2D); }
+    .why-section .section-title { color: white; }
+    .why-section .section-label { color: #FF6B8A; }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+
+    .why-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 28px 22px;
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    .why-card:hover {
+      background: rgba(255,36,66,0.15);
+      border-color: var(--red);
+      transform: translateY(-4px);
+    }
+
+    .why-card .why-icon { font-size: 32px; margin-bottom: 14px; display: block; }
+    .why-card .why-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .why-card .why-desc { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.7; }
+
+    /* ===== JOBS ===== */
+    .jobs-section { background: white; }
+
+    .jobs-list { display: flex; flex-direction: column; gap: 16px; }
+
+    .job-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--cream);
+      border-radius: 16px;
+      padding: 20px 24px;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .job-item:hover {
+      border-color: var(--red);
+      background: white;
+      box-shadow: 0 8px 28px rgba(255,36,66,0.1);
+    }
+
+    .job-info { flex: 1; min-width: 200px; }
+    .job-title { font-size: 16px; font-weight: 700; color: var(--dark); }
+    .job-meta { font-size: 13px; color: var(--gray); margin-top: 4px; }
+
+    .job-btn {
+      display: inline-block;
+      background: var(--red);
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 100px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .job-btn:hover {
+      background: #D91E38;
+      transform: scale(1.04);
+      box-shadow: 0 6px 20px rgba(255,36,66,0.4);
+    }
+
+    /* ===== CONTACTS ===== */
+    .contacts-section {
+      background: linear-gradient(135deg, #FF2442 0%, #FF6B8A 100%);
+      text-align: center;
+    }
+
+    .contacts-section .section-label { color: rgba(255,255,255,0.8); }
+    .contacts-section .section-title { color: white; }
+
+    .contacts-row {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .contact-chip {
+      background: rgba(255,255,255,0.2);
+      color: white;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 14px 32px;
+      border-radius: 100px;
+      backdrop-filter: blur(8px);
+      border: 2px solid rgba(255,255,255,0.35);
+      transition: all 0.3s;
+    }
+
+    .contact-chip:hover {
+      background: rgba(255,255,255,0.35);
+      transform: translateY(-3px);
+    }
+
+    .contacts-hint {
+      color: rgba(255,255,255,0.85);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    /* ===== REWARD BANNER ===== */
+    .reward-banner {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 48px 20px;
+    }
+
+    .reward-banner .big {
+      font-size: clamp(32px, 6vw, 64px);
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .reward-banner .big .highlight { color: var(--red); }
+    .reward-banner .big .highlight2 { color: var(--gold); }
+
+    .reward-banner .note {
+      margin-top: 16px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ===== TICKER ===== */
+    .ticker-wrap {
+      background: var(--red);
+      overflow: hidden;
+      padding: 12px 0;
+      white-space: nowrap;
+    }
+
+    .ticker {
+      display: inline-block;
+      animation: ticker 18s linear infinite;
+      font-size: 14px;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 1px;
+    }
+
+    .ticker span { margin: 0 32px; }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 24px 20px;
+      font-size: 13px;
+    }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.hidden {
+      opacity: 0;
+      transform: translateY(32px);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 480px) {
+      .reward-strip { flex-direction: column; align-items: center; }
+      .reward-card { width: 100%; max-width: 280px; }
+      .job-item { flex-direction: column; align-items: flex-start; }
+      .job-btn { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span>🌸 小红书消费品行业 · 内推火热进行中</span>
+    <span>💰 普通内推奖励 6,000元/人</span>
+    <span>🔥 试用期内推直接 12,000元/人</span>
+    <span>🎯 专家 / 运营 / Solution / 策划 全线招募</span>
+    <span>✨ 品牌方 + 平台方人选都要</span>
+    <span>🌸 小红书消费品行业 · 内推火热进行中</span>
+    <span>💰 普通内推奖励 6,000元/人</span>
+    <span>🔥 试用期内推直接 12,000元/人</span>
+    <span>🎯 专家 / 运营 / Solution / 策划 全线招募</span>
+    <span>✨ 品牌方 + 平台方人选都要</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- Bubbles -->
+  <div class="bubble" style="width:80px;height:80px;left:5%;animation-duration:12s;animation-delay:-3s;"></div>
+  <div class="bubble" style="width:120px;height:120px;left:20%;animation-duration:16s;animation-delay:-7s;"></div>
+  <div class="bubble" style="width:60px;height:60px;left:40%;animation-duration:10s;animation-delay:-1s;"></div>
+  <div class="bubble" style="width:100px;height:100px;left:65%;animation-duration:14s;animation-delay:-5s;"></div>
+  <div class="bubble" style="width:50px;height:50px;left:82%;animation-duration:11s;animation-delay:-2s;"></div>
+  <div class="bubble" style="width:90px;height:90px;left:90%;animation-duration:18s;animation-delay:-9s;"></div>
+
+  <div class="hero-badge">🌸 你认识的下一个 TA，可能就在这</div>
+  <h1 class="hero-title">来内推吧<br/><span>我们在找人</span></h1>
+  <p class="hero-sub">美妆个护·服饰·耐消·快消·交通 · 五大消费品赛道<br/>专家 / 运营 / Solution / 策划 · 品牌方 + 平台方人选都要！</p>
+
+  <div class="reward-strip">
+    <div class="reward-card">
+      <div class="amount">¥6,000</div>
+      <div class="label">普通内推奖励 / 人</div>
+    </div>
+    <div class="reward-card special">
+      <div class="amount">¥12,000</div>
+      <div class="label">试用期内推奖励 / 人</div>
+      <div class="badge">DOUBLE 🔥</div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>继续探索</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="industries-section">
+  <div class="container">
+    <div class="section-label reveal">覆盖行业</div>
+    <h2 class="section-title reveal">五大消费品赛道<br/>全线开放</h2>
+    <div class="industry-grid">
+      <div class="industry-card reveal">
+        <span class="icon">💄</span>
+        <div class="name">美妆个护</div>
+        <div class="dept">商业化一部</div>
+      </div>
+      <div class="industry-card reveal">
+        <span class="icon">👗</span>
+        <div class="name">服饰潮流</div>
+        <div class="dept">商业化二部</div>
+      </div>
+      <div class="industry-card reveal">
+        <span class="icon">🏠</span>
+        <div class="name">耐消家居</div>
+        <div class="dept">商业化三部</div>
+      </div>
+      <div class="industry-card reveal">
+        <span class="icon">🧃</span>
+        <div class="name">快消食饮</div>
+        <div class="dept">商业化四部</div>
+      </div>
+      <div class="industry-card reveal">
+        <span class="icon">🚗</span>
+        <div class="name">汽车交通</div>
+        <div class="dept">商业化六部</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROLES -->
+<section class="roles-section">
+  <div class="container">
+    <div class="section-label reveal">招募岗位</div>
+    <h2 class="section-title reveal">你身边有这样的人吗？<br/>推给我们！</h2>
+    <div class="roles-grid">
+      <div class="role-card reveal">
+        <span class="role-icon">📊</span>
+        <div class="role-name">行业运营专家</div>
+        <div class="role-desc">深度服务品牌客户，懂平台逻辑、有运营经验，推动生意增长。</div>
+      </div>
+      <div class="role-card reveal">
+        <span class="role-icon">🎯</span>
+        <div class="role-name">行业策划</div>
+        <div class="role-desc">洞察消费趋势，制定行业 insight 与整合营销方案，内容感强。</div>
+      </div>
+      <div class="role-card reveal">
+        <span class="role-icon">💡</span>
+        <div class="role-name">Solution 顾问</div>
+        <div class="role-desc">为品牌方提供定制解决方案，懂生意、会提案、能成单。</div>
+      </div>
+      <div class="role-card reveal">
+        <span class="role-icon">🚀</span>
+        <div class="role-name">平台专家</div>
+        <div class="role-desc">平台视角推动商业产品落地，链接品牌与平台两端核心利益。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why-section">
+  <div class="container">
+    <div class="section-label reveal">为什么值得推</div>
+    <h2 class="section-title reveal">你推出去的人，<br/>也会感谢你</h2>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <span class="why-icon">⚡</span>
+        <div class="why-title">需求多，处理快</div>
+        <div class="why-desc">消费品赛道全线扩张，HC 充足，简历进来推进快，不让你白等。</div>
+      </div>
+      <div class="why-card reveal">
+        <span class="why-icon">🎯</span>
+        <div class="why-title">品牌方 + 平台方都要</div>
+        <div class="why-desc">不挑背景，有品牌侧经验的要，有平台侧经验的也要，双向收。</div>
+      </div>
+      <div class="why-card reveal">
+        <span class="why-icon">🧠</span>
+        <div class="why-title">五大顶流消费赛道</div>
+        <div class="why-desc">美妆个护·服饰·快消·耐消·交通，每个赛道都是市场重仓方向。</div>
+      </div>
+      <div class="why-card reveal">
+        <span class="why-icon">🌱</span>
+        <div class="why-title">Young Talent 欢迎</div>
+        <div class="why-desc">有潜力的年轻人我们非常欢迎，不设死门槛，看人看潜力。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REWARD BANNER -->
+<div class="reward-banner">
+  <div class="big">
+    推出去一个人<br/>
+    最少拿 <span class="highlight">¥6,000</span><br/>
+    你在试用期？直接 <span class="highlight2">¥12,000</span> 🔥
+  </div>
+  <div class="note">奖励无上限 · 多推多赚 · 推成才算</div>
+</div>
+
+<!-- JOBS -->
+<section class="jobs-section">
+  <div class="container">
+    <div class="section-label reveal">岗位投递</div>
+    <h2 class="section-title reveal">点击直投<br/>开启你的小红书旅程</h2>
+    <div class="jobs-list">
+      <div class="job-item reveal">
+        <div class="job-info">
+          <div class="job-title">消费品行业 · 平台专家 / 运营 / 策划</div>
+          <div class="job-meta">商业化 · 消费品赛道 · 全线 HC</div>
+        </div>
+        <a class="job-btn" href="https://hr.xiaohongshu.com/recommend/job-info/13926/XHSTOKEN-bVI3R05qaHU1c1RBWTF4Tmh4NkhWL2tHS3k4NVpDeDVsckNuMkU1NWJQeDdqSHNTZGwzR1RTdXRCVkJxT2RNTg==" target="_blank">立即投递 →</a>
+      </div>
+      <div class="job-item reveal">
+        <div class="job-info">
+          <div class="job-title">消费品行业 · Solution / 商业顾问</div>
+          <div class="job-meta">商业化 · 品牌客户方向 · 急需</div>
+        </div>
+        <a class="job-btn" href="https://hr.xiaohongshu.com/recommend/job-info/19304/XHSTOKEN-ci9DRWVIMUtOazc0aGh0TUc0a3QyMjREVDQwYnd3RDZKV3V3d3BtUkZVaHpobnJUZDFncWNjKy9QdUhubUx5UA==" target="_blank">立即投递 →</a>
+      </div>
+      <div class="job-item reveal">
+        <div class="job-info">
+          <div class="job-title">消费品行业 · 行业运营专家</div>
+          <div class="job-meta">商业化 · 平台运营方向 · 快通道</div>
+        </div>
+        <a class="job-btn" href="https://hr.xiaohongshu.com/recommend/job-info/11594/XHSTOKEN-T09EcjQ0bG5jam8xSTMyYXQ4QWFKK014eUR0eHVFcFZQL0hNdFUyUkZtRHVJWldqWDFzWi9CUWh4V1l6UzN4aQ==" target="_blank">立即投递 →</a>
+      </div>
+      <div class="job-item reveal">
+        <div class="job-info">
+          <div class="job-title">消费品行业 · 商业化策划</div>
+          <div class="job-meta">商业化 · 内容营销方向 · 全国开放</div>
+        </div>
+        <a class="job-btn" href="https://hr.xiaohongshu.com/recommend/job-info/13699/XHSTOKEN-QTh3WUcwM2UwWHVwbkVpVTk2STlZbCsyRDFZaE9xSnpzK1pPdWZ2Y1lKc2tkM0NRc0VwNEdETThHN3JiOXVoQw==" target="_blank">立即投递 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section class="contacts-section">
+  <div class="container">
+    <div class="section-label reveal">简历直达</div>
+    <h2 class="section-title reveal">把简历<br/>直接丢给我们</h2>
+    <div class="contacts-row">
+      <div class="contact-chip reveal">夏娜</div>
+      <div class="contact-chip reveal">大娃</div>
+      <div class="contact-chip reveal">瑾瑜</div>
+    </div>
+    <p class="contacts-hint reveal">
+      📩 发 hi 给任一 HR 即可，附上候选人简历 + 说一句认识场景<br/>
+      我们会快速跟进，推进结果第一时间同步给你<br/>
+      <strong style="color:white;">你只管推，我们来搞定剩下的 💪</strong>
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 小红书 · 商业化 HR 团队 · 内推仅限内部员工
+</footer>
+
+<script>
+  // Scroll reveal — add hidden first, then watch
+  const reveals = document.querySelectorAll('.reveal');
+  reveals.forEach(el => el.classList.add('hidden'));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.remove('hidden');
+          entry.target.classList.add('visible');
+        }, 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // Stagger children in grids
+  document.querySelectorAll('.industry-grid, .roles-grid, .why-grid, .jobs-list, .contacts-row').forEach(grid => {
+    const children = grid.querySelectorAll('.reveal');
+    children.forEach((child, i) => {
+      child.style.transitionDelay = (i * 0.08) + 's';
+    });
+  });
+</script>
+
+</body>
+</html>
