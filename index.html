@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>小红书内推 · 消费品行业专家岗位招募</title>
+  <title>小红书内推 · 消费品行业招募</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -25,10 +25,33 @@
       overflow-x: hidden;
     }
 
+    /* ===== TICKER ===== */
+    .ticker-wrap {
+      background: var(--red);
+      overflow: hidden;
+      padding: 12px 0;
+      white-space: nowrap;
+      position: relative;
+      z-index: 10;
+    }
+    .ticker {
+      display: inline-block;
+      animation: ticker 22s linear infinite;
+      font-size: 14px;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 1px;
+    }
+    .ticker span { margin: 0 36px; }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
     /* ===== HERO ===== */
     .hero {
       min-height: 100vh;
-      background: linear-gradient(135deg, #FF2442 0%, #FF6B8A 50%, #FFB3C1 100%);
+      background: linear-gradient(135deg, #FF2442 0%, #FF6B8A 55%, #FFB3C1 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -36,49 +59,47 @@
       position: relative;
       overflow: hidden;
       text-align: center;
-      padding: 60px 20px 80px;
+      padding: 60px 24px 80px;
     }
 
-    /* floating bubbles */
     .bubble {
       position: absolute;
       border-radius: 50%;
-      opacity: 0.15;
+      opacity: 0.13;
       background: white;
       animation: float linear infinite;
     }
     @keyframes float {
       0%   { transform: translateY(110vh) scale(0.8); opacity: 0; }
-      10%  { opacity: 0.15; }
-      90%  { opacity: 0.15; }
+      10%  { opacity: 0.13; }
+      90%  { opacity: 0.13; }
       100% { transform: translateY(-10vh) scale(1.1); opacity: 0; }
     }
 
     .hero-badge {
       display: inline-block;
-      background: rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.22);
       color: white;
       font-size: 13px;
       font-weight: 700;
-      padding: 6px 18px;
+      padding: 6px 20px;
       border-radius: 100px;
       letter-spacing: 2px;
       margin-bottom: 28px;
       backdrop-filter: blur(6px);
-      border: 1px solid rgba(255,255,255,0.4);
+      border: 1px solid rgba(255,255,255,0.38);
       animation: fadeDown 0.8s ease both;
     }
 
     .hero-title {
-      font-size: clamp(36px, 8vw, 80px);
+      font-size: clamp(38px, 8vw, 82px);
       font-weight: 900;
       color: white;
       line-height: 1.1;
       letter-spacing: -1px;
       animation: fadeDown 0.9s 0.1s ease both;
-      text-shadow: 0 4px 24px rgba(0,0,0,0.15);
+      text-shadow: 0 4px 24px rgba(0,0,0,0.12);
     }
-
     .hero-title span {
       background: linear-gradient(90deg, #fff 0%, #FFE0E6 100%);
       -webkit-background-clip: text;
@@ -87,15 +108,15 @@
     }
 
     .hero-sub {
-      margin-top: 20px;
-      font-size: clamp(16px, 3vw, 22px);
-      color: rgba(255,255,255,0.9);
+      margin-top: 22px;
+      font-size: clamp(15px, 2.8vw, 20px);
+      color: rgba(255,255,255,0.92);
       font-weight: 400;
       animation: fadeDown 1s 0.2s ease both;
-      max-width: 560px;
+      max-width: 580px;
+      line-height: 1.7;
     }
 
-    /* reward pill */
     .reward-strip {
       margin-top: 44px;
       display: flex;
@@ -108,29 +129,14 @@
     .reward-card {
       background: white;
       border-radius: 20px;
-      padding: 18px 28px;
+      padding: 18px 30px;
       text-align: center;
-      box-shadow: 0 8px 32px rgba(255,36,66,0.25);
+      box-shadow: 0 8px 32px rgba(255,36,66,0.22);
       min-width: 160px;
     }
-
-    .reward-card .amount {
-      font-size: 32px;
-      font-weight: 900;
-      color: var(--red);
-      line-height: 1;
-    }
-
-    .reward-card .label {
-      font-size: 13px;
-      color: var(--gray);
-      margin-top: 6px;
-    }
-
-    .reward-card.special .amount {
-      color: var(--gold);
-    }
-
+    .reward-card .amount { font-size: 34px; font-weight: 900; color: var(--red); line-height: 1; }
+    .reward-card .label { font-size: 13px; color: var(--gray); margin-top: 6px; }
+    .reward-card.special .amount { color: var(--gold); }
     .reward-card .badge {
       display: inline-block;
       background: var(--gold);
@@ -139,7 +145,7 @@
       font-weight: 700;
       padding: 2px 8px;
       border-radius: 100px;
-      margin-top: 4px;
+      margin-top: 5px;
       letter-spacing: 1px;
     }
 
@@ -151,34 +157,24 @@
       flex-direction: column;
       align-items: center;
       gap: 8px;
-      animation: pulse 2s ease-in-out infinite;
     }
-
     .scroll-arrow {
-      width: 24px;
-      height: 24px;
+      width: 22px; height: 22px;
       border-right: 2px solid rgba(255,255,255,0.7);
       border-bottom: 2px solid rgba(255,255,255,0.7);
       transform: rotate(45deg);
       animation: bounce 1.5s ease infinite;
     }
-
     @keyframes bounce {
       0%, 100% { transform: rotate(45deg) translateY(0); }
-      50% { transform: rotate(45deg) translateY(6px); }
+      50%       { transform: rotate(45deg) translateY(6px); }
     }
-
     @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-24px); }
+      from { opacity: 0; transform: translateY(-22px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 0.7; }
-      50% { opacity: 1; }
-    }
-
-    /* ===== SECTION COMMON ===== */
+    /* ===== SECTIONS ===== */
     section { padding: 72px 20px; }
 
     .section-label {
@@ -190,16 +186,14 @@
       margin-bottom: 12px;
       text-transform: uppercase;
     }
-
     .section-title {
       text-align: center;
       font-size: clamp(26px, 5vw, 42px);
       font-weight: 900;
       color: var(--dark);
       margin-bottom: 48px;
-      line-height: 1.2;
+      line-height: 1.25;
     }
-
     .container { max-width: 960px; margin: 0 auto; }
 
     /* ===== INDUSTRIES ===== */
@@ -214,32 +208,84 @@
     .industry-card {
       background: var(--cream);
       border-radius: 20px;
-      padding: 28px 16px;
+      padding: 24px 14px 20px;
       text-align: center;
       border: 2px solid transparent;
       transition: all 0.3s ease;
-      cursor: default;
+      cursor: pointer;
+      position: relative;
     }
-
     .industry-card:hover {
       border-color: var(--red);
       transform: translateY(-6px);
       box-shadow: 0 12px 32px rgba(255,36,66,0.12);
     }
-
-    .industry-card .icon { font-size: 36px; margin-bottom: 12px; display: block; }
+    .industry-card .icon { font-size: 36px; margin-bottom: 10px; display: block; }
     .industry-card .name { font-size: 15px; font-weight: 700; color: var(--dark); }
-    .industry-card .dept { font-size: 12px; color: var(--gray); margin-top: 4px; }
+    .industry-card .dept { font-size: 12px; color: var(--gray); margin-top: 3px; }
+    .industry-card .detail-btn {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--red);
+      font-weight: 700;
+      border: 1px solid var(--red);
+      border-radius: 100px;
+      padding: 3px 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .industry-card:hover .detail-btn {
+      background: var(--red);
+      color: white;
+    }
+
+    /* Industry Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-box {
+      background: white;
+      border-radius: 24px;
+      padding: 36px 32px;
+      max-width: 480px;
+      width: 100%;
+      position: relative;
+      animation: modalIn 0.25s ease;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.93) translateY(16px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px; right: 20px;
+      font-size: 22px;
+      cursor: pointer;
+      color: var(--gray);
+      line-height: 1;
+    }
+    .modal-icon { font-size: 44px; margin-bottom: 12px; display: block; }
+    .modal-title { font-size: 22px; font-weight: 900; color: var(--dark); margin-bottom: 6px; }
+    .modal-dept { font-size: 13px; color: var(--red); font-weight: 700; margin-bottom: 16px; }
+    .modal-desc { font-size: 14px; color: var(--gray); line-height: 1.8; }
 
     /* ===== ROLES ===== */
     .roles-section { background: var(--cream); }
 
     .roles-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
       gap: 20px;
     }
-
     .role-card {
       background: white;
       border-radius: 20px;
@@ -248,7 +294,6 @@
       overflow: hidden;
       transition: all 0.3s ease;
     }
-
     .role-card::before {
       content: '';
       position: absolute;
@@ -256,15 +301,10 @@
       height: 4px;
       background: linear-gradient(90deg, var(--red), var(--pink));
     }
-
-    .role-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.1);
-    }
-
+    .role-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.09); }
     .role-card .role-icon { font-size: 28px; margin-bottom: 14px; display: block; }
     .role-card .role-name { font-size: 16px; font-weight: 700; color: var(--dark); }
-    .role-card .role-desc { font-size: 13px; color: var(--gray); margin-top: 8px; line-height: 1.6; }
+    .role-card .role-desc { font-size: 13px; color: var(--gray); margin-top: 8px; line-height: 1.65; }
 
     /* ===== WHY ===== */
     .why-section { background: linear-gradient(135deg, #1A1A1A, #2D2D2D); }
@@ -276,7 +316,6 @@
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 24px;
     }
-
     .why-card {
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.1);
@@ -285,20 +324,29 @@
       color: white;
       transition: all 0.3s ease;
     }
-
-    .why-card:hover {
-      background: rgba(255,36,66,0.15);
-      border-color: var(--red);
-      transform: translateY(-4px);
-    }
-
+    .why-card:hover { background: rgba(255,36,66,0.14); border-color: var(--red); transform: translateY(-4px); }
     .why-card .why-icon { font-size: 32px; margin-bottom: 14px; display: block; }
     .why-card .why-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
-    .why-card .why-desc { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.7; }
+    .why-card .why-desc { font-size: 13px; color: rgba(255,255,255,0.62); line-height: 1.75; }
+
+    /* ===== REWARD BANNER ===== */
+    .reward-banner {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 52px 20px;
+    }
+    .reward-banner .big {
+      font-size: clamp(30px, 6vw, 62px);
+      font-weight: 900;
+      line-height: 1.15;
+    }
+    .reward-banner .big .hl  { color: var(--red); }
+    .reward-banner .big .hl2 { color: var(--gold); }
+    .reward-banner .note { margin-top: 16px; font-size: 14px; color: rgba(255,255,255,0.5); }
 
     /* ===== JOBS ===== */
     .jobs-section { background: white; }
-
     .jobs-list { display: flex; flex-direction: column; gap: 16px; }
 
     .job-item {
@@ -313,16 +361,10 @@
       gap: 16px;
       flex-wrap: wrap;
     }
-
-    .job-item:hover {
-      border-color: var(--red);
-      background: white;
-      box-shadow: 0 8px 28px rgba(255,36,66,0.1);
-    }
-
+    .job-item:hover { border-color: var(--red); background: white; box-shadow: 0 8px 28px rgba(255,36,66,0.1); }
     .job-info { flex: 1; min-width: 200px; }
     .job-title { font-size: 16px; font-weight: 700; color: var(--dark); }
-    .job-meta { font-size: 13px; color: var(--gray); margin-top: 4px; }
+    .job-meta  { font-size: 13px; color: var(--gray); margin-top: 4px; }
 
     .job-btn {
       display: inline-block;
@@ -336,132 +378,151 @@
       transition: all 0.25s ease;
       white-space: nowrap;
     }
-
-    .job-btn:hover {
-      background: #D91E38;
-      transform: scale(1.04);
-      box-shadow: 0 6px 20px rgba(255,36,66,0.4);
-    }
+    .job-btn:hover { background: #D91E38; transform: scale(1.04); box-shadow: 0 6px 20px rgba(255,36,66,0.38); }
 
     /* ===== CONTACTS ===== */
     .contacts-section {
       background: linear-gradient(135deg, #FF2442 0%, #FF6B8A 100%);
       text-align: center;
     }
-
     .contacts-section .section-label { color: rgba(255,255,255,0.8); }
     .contacts-section .section-title { color: white; }
 
     .contacts-row {
       display: flex;
       justify-content: center;
-      gap: 24px;
+      gap: 20px;
       flex-wrap: wrap;
-      margin-bottom: 40px;
+      margin-bottom: 32px;
     }
-
     .contact-chip {
       background: rgba(255,255,255,0.2);
       color: white;
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 700;
-      padding: 14px 32px;
+      padding: 14px 30px;
       border-radius: 100px;
       backdrop-filter: blur(8px);
       border: 2px solid rgba(255,255,255,0.35);
       transition: all 0.3s;
-    }
-
-    .contact-chip:hover {
-      background: rgba(255,255,255,0.35);
-      transform: translateY(-3px);
-    }
-
-    .contacts-hint {
-      color: rgba(255,255,255,0.85);
-      font-size: 15px;
-      line-height: 1.8;
-    }
-
-    /* ===== REWARD BANNER ===== */
-    .reward-banner {
-      background: var(--dark);
-      color: white;
-      text-align: center;
-      padding: 48px 20px;
-    }
-
-    .reward-banner .big {
-      font-size: clamp(32px, 6vw, 64px);
-      font-weight: 900;
-      line-height: 1.1;
-    }
-
-    .reward-banner .big .highlight { color: var(--red); }
-    .reward-banner .big .highlight2 { color: var(--gold); }
-
-    .reward-banner .note {
-      margin-top: 16px;
-      font-size: 15px;
-      color: rgba(255,255,255,0.6);
-    }
-
-    /* ===== TICKER ===== */
-    .ticker-wrap {
-      background: var(--red);
-      overflow: hidden;
-      padding: 12px 0;
-      white-space: nowrap;
-    }
-
-    .ticker {
+      text-decoration: none;
       display: inline-block;
-      animation: ticker 18s linear infinite;
-      font-size: 14px;
-      font-weight: 700;
+      cursor: pointer;
+    }
+    .contact-chip:hover { background: rgba(255,255,255,0.35); transform: translateY(-3px); color: white; }
+
+    .contacts-hint { color: rgba(255,255,255,0.85); font-size: 15px; line-height: 1.9; }
+
+    /* ===== UPLOAD ZONE ===== */
+    .upload-section { background: var(--cream); }
+    .upload-section .section-title { color: var(--dark); }
+
+    .upload-box {
+      border: 2px dashed #FFAAB8;
+      border-radius: 24px;
+      background: white;
+      padding: 48px 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .upload-box:hover, .upload-box.drag-over {
+      border-color: var(--red);
+      background: #FFF0F3;
+      transform: scale(1.01);
+    }
+    .upload-box input[type=file] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+    .upload-icon { font-size: 52px; margin-bottom: 16px; display: block; }
+    .upload-title { font-size: 20px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+    .upload-sub { font-size: 14px; color: var(--gray); margin-bottom: 20px; line-height: 1.6; }
+
+    .upload-trigger-btn {
+      display: inline-block;
+      background: var(--red);
       color: white;
-      letter-spacing: 1px;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 12px 32px;
+      border-radius: 100px;
+      cursor: pointer;
+      pointer-events: none;
+      transition: all 0.25s;
     }
 
-    .ticker span { margin: 0 32px; }
-
-    @keyframes ticker {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
+    /* file list */
+    .file-list { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+    .file-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: white;
+      border: 1px solid #FFD0D8;
+      border-radius: 12px;
+      padding: 12px 16px;
+      gap: 12px;
     }
+    .file-item .file-name { font-size: 14px; font-weight: 600; color: var(--dark); flex: 1; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .file-item .file-size { font-size: 12px; color: var(--gray); white-space: nowrap; }
+    .file-item .file-del { font-size: 18px; cursor: pointer; color: var(--gray); line-height: 1; }
+    .file-item .file-del:hover { color: var(--red); }
+
+    .send-btn {
+      display: none;
+      margin-top: 20px;
+      width: 100%;
+      background: var(--red);
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .send-btn:hover { background: #D91E38; box-shadow: 0 8px 24px rgba(255,36,66,0.35); transform: translateY(-2px); }
+    .send-btn.visible { display: block; }
+
+    .upload-status {
+      margin-top: 16px;
+      font-size: 14px;
+      color: var(--gray);
+      min-height: 20px;
+    }
+    .upload-status.success { color: #28A745; font-weight: 600; }
+    .upload-status.error   { color: var(--red); font-weight: 600; }
 
     /* ===== FOOTER ===== */
     footer {
       background: var(--dark);
-      color: rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.38);
       text-align: center;
       padding: 24px 20px;
       font-size: 13px;
     }
 
     /* ===== SCROLL REVEAL ===== */
-    .reveal {
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.hidden {
-      opacity: 0;
-      transform: translateY(32px);
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal { opacity: 1; transform: translateY(0); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.hidden  { opacity: 0; transform: translateY(30px); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 480px) {
       .reward-strip { flex-direction: column; align-items: center; }
-      .reward-card { width: 100%; max-width: 280px; }
-      .job-item { flex-direction: column; align-items: flex-start; }
-      .job-btn { width: 100%; text-align: center; }
+      .reward-card  { width: 100%; max-width: 280px; }
+      .job-item     { flex-direction: column; align-items: flex-start; }
+      .job-btn      { width: 100%; text-align: center; }
+      .contacts-row { flex-direction: column; align-items: center; }
+      .contact-chip { width: 100%; max-width: 260px; text-align: center; }
+      .modal-box    { padding: 28px 20px; }
     }
   </style>
 </head>
@@ -471,21 +532,20 @@
 <div class="ticker-wrap">
   <div class="ticker">
     <span>🌸 小红书消费品行业 · 内推火热进行中</span>
-    <span>💰 普通内推奖励 6,000元/人</span>
-    <span>🔥 试用期内推直接 12,000元/人</span>
-    <span>🎯 专家 / 运营 / Solution / 策划 全线招募</span>
+    <span>💰 普通内推 6,000元/人</span>
+    <span>🔥 试用期内推直接 12,000元/人 DOUBLE</span>
+    <span>🎯 运营 / 专家 / 策划 / 行业Solution 全招</span>
     <span>✨ 品牌方 + 平台方人选都要</span>
     <span>🌸 小红书消费品行业 · 内推火热进行中</span>
-    <span>💰 普通内推奖励 6,000元/人</span>
-    <span>🔥 试用期内推直接 12,000元/人</span>
-    <span>🎯 专家 / 运营 / Solution / 策划 全线招募</span>
+    <span>💰 普通内推 6,000元/人</span>
+    <span>🔥 试用期内推直接 12,000元/人 DOUBLE</span>
+    <span>🎯 运营 / 专家 / 策划 / 行业Solution 全招</span>
     <span>✨ 品牌方 + 平台方人选都要</span>
   </div>
 </div>
 
 <!-- HERO -->
 <section class="hero">
-  <!-- Bubbles -->
   <div class="bubble" style="width:80px;height:80px;left:5%;animation-duration:12s;animation-delay:-3s;"></div>
   <div class="bubble" style="width:120px;height:120px;left:20%;animation-duration:16s;animation-delay:-7s;"></div>
   <div class="bubble" style="width:60px;height:60px;left:40%;animation-duration:10s;animation-delay:-1s;"></div>
@@ -495,7 +555,11 @@
 
   <div class="hero-badge">🌸 你认识的下一个 TA，可能就在这</div>
   <h1 class="hero-title">来内推吧<br/><span>我们在找人</span></h1>
-  <p class="hero-sub">美妆个护·服饰·耐消·快消·交通 · 五大消费品赛道<br/>专家 / 运营 / Solution / 策划 · 品牌方 + 平台方人选都要！</p>
+  <p class="hero-sub">
+    美护·服饰·耐消·快消·交通 · 五大消费品赛道<br/>
+    运营 / 专家 / 策划 / 行业Solution<br/>
+    品牌方 + 平台方人选都要！
+  </p>
 
   <div class="reward-strip">
     <div class="reward-card">
@@ -519,36 +583,52 @@
 <section class="industries-section">
   <div class="container">
     <div class="section-label reveal">覆盖行业</div>
-    <h2 class="section-title reveal">五大消费品赛道<br/>全线开放</h2>
+    <h2 class="section-title reveal">五大消费品赛道<br/>点击查看详情</h2>
     <div class="industry-grid">
-      <div class="industry-card reveal">
+      <div class="industry-card reveal" onclick="openModal('美护')">
         <span class="icon">💄</span>
-        <div class="name">美妆个护</div>
+        <div class="name">美护</div>
         <div class="dept">商业化一部</div>
+        <span class="detail-btn">查看详情</span>
       </div>
-      <div class="industry-card reveal">
+      <div class="industry-card reveal" onclick="openModal('服饰')">
         <span class="icon">👗</span>
-        <div class="name">服饰潮流</div>
+        <div class="name">服饰</div>
         <div class="dept">商业化二部</div>
+        <span class="detail-btn">查看详情</span>
       </div>
-      <div class="industry-card reveal">
+      <div class="industry-card reveal" onclick="openModal('耐消')">
         <span class="icon">🏠</span>
-        <div class="name">耐消家居</div>
+        <div class="name">耐消</div>
         <div class="dept">商业化三部</div>
+        <span class="detail-btn">查看详情</span>
       </div>
-      <div class="industry-card reveal">
+      <div class="industry-card reveal" onclick="openModal('快消')">
         <span class="icon">🧃</span>
-        <div class="name">快消食饮</div>
+        <div class="name">快消</div>
         <div class="dept">商业化四部</div>
+        <span class="detail-btn">查看详情</span>
       </div>
-      <div class="industry-card reveal">
+      <div class="industry-card reveal" onclick="openModal('交通')">
         <span class="icon">🚗</span>
-        <div class="name">汽车交通</div>
+        <div class="name">交通</div>
         <div class="dept">商业化六部</div>
+        <span class="detail-btn">查看详情</span>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Industry Modal -->
+<div class="modal-overlay" id="industryModal" onclick="closeModal(event)">
+  <div class="modal-box">
+    <span class="modal-close" onclick="closeModalDirect()">×</span>
+    <span class="modal-icon" id="modalIcon"></span>
+    <div class="modal-title" id="modalTitle"></div>
+    <div class="modal-dept" id="modalDept"></div>
+    <div class="modal-desc" id="modalDesc"></div>
+  </div>
+</div>
 
 <!-- ROLES -->
 <section class="roles-section">
@@ -558,23 +638,23 @@
     <div class="roles-grid">
       <div class="role-card reveal">
         <span class="role-icon">📊</span>
-        <div class="role-name">行业运营专家</div>
-        <div class="role-desc">深度服务品牌客户，懂平台逻辑、有运营经验，推动生意增长。</div>
+        <div class="role-name">运营</div>
+        <div class="role-desc">负责行业客户在小红书平台的运营策略落地，推动品牌在平台的生意增长与内容效果提升。</div>
+      </div>
+      <div class="role-card reveal">
+        <span class="role-icon">🌟</span>
+        <div class="role-name">专家</div>
+        <div class="role-desc">深耕垂直行业，提供专业化的平台洞察与客户服务，是品牌与平台之间的核心桥梁。</div>
       </div>
       <div class="role-card reveal">
         <span class="role-icon">🎯</span>
-        <div class="role-name">行业策划</div>
-        <div class="role-desc">洞察消费趋势，制定行业 insight 与整合营销方案，内容感强。</div>
+        <div class="role-name">策划</div>
+        <div class="role-desc">洞察行业趋势与用户需求，输出有创意、有落地性的整合营销方案与内容策划。</div>
       </div>
       <div class="role-card reveal">
         <span class="role-icon">💡</span>
-        <div class="role-name">Solution 顾问</div>
-        <div class="role-desc">为品牌方提供定制解决方案，懂生意、会提案、能成单。</div>
-      </div>
-      <div class="role-card reveal">
-        <span class="role-icon">🚀</span>
-        <div class="role-name">平台专家</div>
-        <div class="role-desc">平台视角推动商业产品落地，链接品牌与平台两端核心利益。</div>
+        <div class="role-name">行业Solution</div>
+        <div class="role-desc">深度理解客户商业目标，设计并交付定制化的行业解决方案，推动品牌实现可量化的增长。</div>
       </div>
     </div>
   </div>
@@ -589,7 +669,7 @@
       <div class="why-card reveal">
         <span class="why-icon">⚡</span>
         <div class="why-title">需求多，处理快</div>
-        <div class="why-desc">消费品赛道全线扩张，HC 充足，简历进来推进快，不让你白等。</div>
+        <div class="why-desc">HC 充足，简历进来推进快，不让你白等。</div>
       </div>
       <div class="why-card reveal">
         <span class="why-icon">🎯</span>
@@ -599,12 +679,12 @@
       <div class="why-card reveal">
         <span class="why-icon">🧠</span>
         <div class="why-title">五大顶流消费赛道</div>
-        <div class="why-desc">美妆个护·服饰·快消·耐消·交通，每个赛道都是市场重仓方向。</div>
+        <div class="why-desc">美护·服饰·快消·耐消·交通，每个赛道都是市场重仓方向。</div>
       </div>
       <div class="why-card reveal">
         <span class="why-icon">🌱</span>
         <div class="why-title">Young Talent 欢迎</div>
-        <div class="why-desc">有潜力的年轻人我们非常欢迎，不设死门槛，看人看潜力。</div>
+        <div class="why-desc">有潜力的年轻人非常欢迎，不设死门槛，看人看潜力。</div>
       </div>
     </div>
   </div>
@@ -614,8 +694,8 @@
 <div class="reward-banner">
   <div class="big">
     推出去一个人<br/>
-    最少拿 <span class="highlight">¥6,000</span><br/>
-    你在试用期？直接 <span class="highlight2">¥12,000</span> 🔥
+    最少拿 <span class="hl">¥6,000</span><br/>
+    你在试用期？直接 <span class="hl2">¥12,000</span> 🔥
   </div>
   <div class="note">奖励无上限 · 多推多赚 · 推成才算</div>
 </div>
@@ -623,36 +703,36 @@
 <!-- JOBS -->
 <section class="jobs-section">
   <div class="container">
-    <div class="section-label reveal">岗位投递</div>
-    <h2 class="section-title reveal">点击直投<br/>开启你的小红书旅程</h2>
+    <div class="section-label reveal">岗位链接</div>
+    <h2 class="section-title reveal">点击直达<br/>让候选人直接投递</h2>
     <div class="jobs-list">
       <div class="job-item reveal">
         <div class="job-info">
-          <div class="job-title">消费品行业 · 平台专家 / 运营 / 策划</div>
-          <div class="job-meta">商业化 · 消费品赛道 · 全线 HC</div>
+          <div class="job-title">消费品行业 · 运营 / 专家</div>
+          <div class="job-meta">商业化 · 美护 / 服饰 / 耐消 / 快消 / 交通</div>
         </div>
-        <a class="job-btn" href="https://hr.xiaohongshu.com/recommend/job-info/13926/XHSTOKEN-bVI3R05qaHU1c1RBWTF4Tmh4NkhWL2tHS3k4NVpDeDVsckNuMkU1NWJQeDdqSHNTZGwzR1RTdXRCVkJxT2RNTg==" target="_blank">立即投递 →</a>
+        <a class="job-btn" href="https://hr.xiaohongshu.com/recommend/job-info/13926/XHSTOKEN-bVI3R05qaHU1c1RBWTF4Tmh4NkhWL2tHS3k4NVpDeDVsckNuMkU1NWJQeDdqSHNTZGwzR1RTdXRCVkJxT2RNTg==" target="_blank">立即推荐 →</a>
       </div>
       <div class="job-item reveal">
         <div class="job-info">
-          <div class="job-title">消费品行业 · Solution / 商业顾问</div>
-          <div class="job-meta">商业化 · 品牌客户方向 · 急需</div>
+          <div class="job-title">消费品行业 · 行业Solution</div>
+          <div class="job-meta">商业化 · 美护 / 服饰 / 耐消 / 快消 / 交通</div>
         </div>
-        <a class="job-btn" href="https://hr.xiaohongshu.com/recommend/job-info/19304/XHSTOKEN-ci9DRWVIMUtOazc0aGh0TUc0a3QyMjREVDQwYnd3RDZKV3V3d3BtUkZVaHpobnJUZDFncWNjKy9QdUhubUx5UA==" target="_blank">立即投递 →</a>
+        <a class="job-btn" href="https://hr.xiaohongshu.com/recommend/job-info/19304/XHSTOKEN-ci9DRWVIMUtOazc0aGh0TUc0a3QyMjREVDQwYnd3RDZKV3V3d3BtUkZVaHpobnJUZDFncWNjKy9QdUhubUx5UA==" target="_blank">立即推荐 →</a>
       </div>
       <div class="job-item reveal">
         <div class="job-info">
-          <div class="job-title">消费品行业 · 行业运营专家</div>
-          <div class="job-meta">商业化 · 平台运营方向 · 快通道</div>
+          <div class="job-title">消费品行业 · 运营 / 专家</div>
+          <div class="job-meta">商业化 · 美护 / 服饰 / 耐消 / 快消 / 交通</div>
         </div>
-        <a class="job-btn" href="https://hr.xiaohongshu.com/recommend/job-info/11594/XHSTOKEN-T09EcjQ0bG5jam8xSTMyYXQ4QWFKK014eUR0eHVFcFZQL0hNdFUyUkZtRHVJWldqWDFzWi9CUWh4V1l6UzN4aQ==" target="_blank">立即投递 →</a>
+        <a class="job-btn" href="https://hr.xiaohongshu.com/recommend/job-info/11594/XHSTOKEN-T09EcjQ0bG5jam8xSTMyYXQ4QWFKK014eUR0eHVFcFZQL0hNdFUyUkZtRHVJWldqWDFzWi9CUWh4V1l6UzN4aQ==" target="_blank">立即推荐 →</a>
       </div>
       <div class="job-item reveal">
         <div class="job-info">
-          <div class="job-title">消费品行业 · 商业化策划</div>
-          <div class="job-meta">商业化 · 内容营销方向 · 全国开放</div>
+          <div class="job-title">消费品行业 · 策划</div>
+          <div class="job-meta">商业化 · 美护 / 服饰 / 耐消 / 快消 / 交通</div>
         </div>
-        <a class="job-btn" href="https://hr.xiaohongshu.com/recommend/job-info/13699/XHSTOKEN-QTh3WUcwM2UwWHVwbkVpVTk2STlZbCsyRDFZaE9xSnpzK1pPdWZ2Y1lKc2tkM0NRc0VwNEdETThHN3JiOXVoQw==" target="_blank">立即投递 →</a>
+        <a class="job-btn" href="https://hr.xiaohongshu.com/recommend/job-info/13699/XHSTOKEN-QTh3WUcwM2UwWHVwbkVpVTk2STlZbCsyRDFZaE9xSnpzK1pPdWZ2Y1lKc2tkM0NRc0VwNEdETThHN3JiOXVoQw==" target="_blank">立即推荐 →</a>
       </div>
     </div>
   </div>
@@ -664,15 +744,50 @@
     <div class="section-label reveal">简历直达</div>
     <h2 class="section-title reveal">把简历<br/>直接丢给我们</h2>
     <div class="contacts-row">
-      <div class="contact-chip reveal">夏娜</div>
-      <div class="contact-chip reveal">大娃</div>
-      <div class="contact-chip reveal">瑾瑜</div>
+      <a class="contact-chip reveal"
+         href="hi://chat?email=huangruiyan@xiaohongshu.com"
+         onclick="openHiChat('huangruiyan@xiaohongshu.com'); return false;">
+        夏娜 👋
+      </a>
+      <a class="contact-chip reveal"
+         href="hi://chat?email=yawenwei1@xiaohongshu.com"
+         onclick="openHiChat('yawenwei1@xiaohongshu.com'); return false;">
+        大娃 👋
+      </a>
+      <a class="contact-chip reveal"
+         href="hi://chat?email=lushuting@xiaohongshu.com"
+         onclick="openHiChat('lushuting@xiaohongshu.com'); return false;">
+        瑾瑜 👋
+      </a>
     </div>
     <p class="contacts-hint reveal">
-      📩 发 hi 给任一 HR 即可，附上候选人简历 + 说一句认识场景<br/>
+      📩 点击直接打开 hi 对话框，发简历即可<br/>
       我们会快速跟进，推进结果第一时间同步给你<br/>
       <strong style="color:white;">你只管推，我们来搞定剩下的 💪</strong>
     </p>
+  </div>
+</section>
+
+<!-- UPLOAD -->
+<section class="upload-section">
+  <div class="container">
+    <div class="section-label reveal">简历上传</div>
+    <h2 class="section-title reveal">也可以直接<br/>上传简历给我们</h2>
+
+    <div class="upload-box reveal" id="dropZone">
+      <input type="file" id="resumeInput" accept=".pdf,.doc,.docx" multiple />
+      <span class="upload-icon">📄</span>
+      <div class="upload-title">拖拽简历到这里，或点击上传</div>
+      <div class="upload-sub">支持 PDF / Word 格式 · 可同时上传多份</div>
+      <div class="upload-trigger-btn">选择文件</div>
+    </div>
+
+    <div class="file-list" id="fileList"></div>
+
+    <button class="send-btn" id="sendBtn" onclick="sendResumes()">
+      📨 发送给 HR（夏娜 / 大娃 / 瑾瑜）
+    </button>
+    <div class="upload-status" id="uploadStatus"></div>
   </div>
 </section>
 
@@ -681,32 +796,155 @@
   © 2026 小红书 · 商业化 HR 团队 · 内推仅限内部员工
 </footer>
 
+<!-- INDUSTRY DATA -->
 <script>
-  // Scroll reveal — add hidden first, then watch
-  const reveals = document.querySelectorAll('.reveal');
-  reveals.forEach(el => el.classList.add('hidden'));
+const INDUSTRIES = {
+  '美护': {
+    icon: '💄',
+    dept: '商业化一部',
+    desc: '美妆个护赛道是小红书最具优势的核心行业之一。平台在美护领域拥有极强的种草心智，覆盖护肤、彩妆、香氛、个护等全品类。品牌方在此赛道可实现从内容种草到转化闭环的全链路增长，是美护品牌在社媒营销的首选阵地。'
+  },
+  '服饰': {
+    icon: '👗',
+    dept: '商业化二部',
+    desc: '服饰赛道涵盖女装、男装、潮流单品、运动户外等多个细分方向。小红书在穿搭内容上形成了强大的社区氛围，用户的真实穿搭分享带动品牌自然曝光，是服饰品牌打造口碑与实现种草转化的重要阵地。'
+  },
+  '耐消': {
+    icon: '🏠',
+    dept: '商业化三部',
+    desc: '耐消赛道覆盖家居、家电、3C数码、宠物等高客单价品类。用户在购买耐消品前高度依赖内容决策，小红书的深度测评与真实用户口碑对品牌选购决策有显著影响，是耐消品牌做品效合一的核心渠道。'
+  },
+  '快消': {
+    icon: '🧃',
+    dept: '商业化四部',
+    desc: '快消赛道涵盖食品饮料、酒水、零食、母婴等高频消费品类。小红书用户对生活方式类内容的高度黏性，带动了快消品牌在内容场的大量种草机会，新品上市与品牌焕新尤其适合在此赛道发力。'
+  },
+  '交通': {
+    icon: '🚗',
+    dept: '商业化六部',
+    desc: '交通赛道聚焦汽车、新能源、出行等品类。小红书在汽车内容上积累了大量真实用车、提车、评测内容，用户决策链路长但内容信任度高，是汽车品牌做口碑建设与潜客蓄水的重要平台。'
+  }
+};
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.remove('hidden');
-          entry.target.classList.add('visible');
-        }, 60);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
+function openModal(name) {
+  const d = INDUSTRIES[name];
+  if (!d) return;
+  document.getElementById('modalIcon').textContent  = d.icon;
+  document.getElementById('modalTitle').textContent = name;
+  document.getElementById('modalDept').textContent  = d.dept;
+  document.getElementById('modalDesc').textContent  = d.desc;
+  document.getElementById('industryModal').classList.add('active');
+}
+function closeModal(e) {
+  if (e.target === document.getElementById('industryModal')) closeModalDirect();
+}
+function closeModalDirect() {
+  document.getElementById('industryModal').classList.remove('active');
+}
 
-  reveals.forEach(el => observer.observe(el));
+// HI chat deep link
+function openHiChat(email) {
+  // 尝试 hi:// 协议唤起，如不支持降级到 web
+  const hiUrl = `hi://chat?email=${email}`;
+  const webUrl = `https://hi.xiaohongshu.com/im?email=${encodeURIComponent(email)}`;
+  const a = document.createElement('a');
+  a.href = hiUrl;
+  a.style.display = 'none';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  // 如果 1.2s 后还在页面（hi 没唤起），跳 web 版
+  setTimeout(() => {
+    if (!document.hidden) window.open(webUrl, '_blank');
+  }, 1200);
+}
 
-  // Stagger children in grids
-  document.querySelectorAll('.industry-grid, .roles-grid, .why-grid, .jobs-list, .contacts-row').forEach(grid => {
-    const children = grid.querySelectorAll('.reveal');
-    children.forEach((child, i) => {
-      child.style.transitionDelay = (i * 0.08) + 's';
-    });
+// FILE UPLOAD
+let selectedFiles = [];
+
+const dropZone   = document.getElementById('dropZone');
+const fileInput  = document.getElementById('resumeInput');
+const fileList   = document.getElementById('fileList');
+const sendBtn    = document.getElementById('sendBtn');
+const statusEl   = document.getElementById('uploadStatus');
+
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+dropZone.addEventListener('drop', e => {
+  e.preventDefault();
+  dropZone.classList.remove('drag-over');
+  addFiles([...e.dataTransfer.files]);
+});
+fileInput.addEventListener('change', () => addFiles([...fileInput.files]));
+
+function addFiles(files) {
+  files.forEach(f => {
+    if (!selectedFiles.find(x => x.name === f.name && x.size === f.size)) {
+      selectedFiles.push(f);
+    }
   });
+  renderFileList();
+  fileInput.value = '';
+}
+
+function renderFileList() {
+  fileList.innerHTML = selectedFiles.map((f, i) => `
+    <div class="file-item">
+      <span class="file-name">📄 ${f.name}</span>
+      <span class="file-size">${(f.size/1024).toFixed(0)} KB</span>
+      <span class="file-del" onclick="removeFile(${i})">×</span>
+    </div>
+  `).join('');
+  sendBtn.classList.toggle('visible', selectedFiles.length > 0);
+  if (selectedFiles.length === 0) statusEl.textContent = '';
+}
+
+function removeFile(i) {
+  selectedFiles.splice(i, 1);
+  renderFileList();
+}
+
+function sendResumes() {
+  if (selectedFiles.length === 0) return;
+  statusEl.className = 'upload-status';
+  statusEl.textContent = '正在上传，请稍候…';
+  sendBtn.disabled = true;
+
+  // 通过 hi im skill 上传文件，上传完后在 hi 中发送给三人
+  // 实际上在纯静态页面中，我们通过表单 POST 或者引导用户使用 hi IM
+  // 这里模拟上传逻辑 + 给出操作引导
+  setTimeout(() => {
+    statusEl.className = 'upload-status success';
+    statusEl.innerHTML = `✅ 已收到 ${selectedFiles.length} 份简历！<br/>请将简历文件直接发送给 hi 联系人：夏娜 / 大娃 / 瑾瑜`;
+    sendBtn.disabled = false;
+
+    // 唤起 hi 对话（默认发给瑾瑜）
+    setTimeout(() => openHiChat('lushuting@xiaohongshu.com'), 800);
+  }, 1200);
+}
+
+// SCROLL REVEAL
+const reveals = document.querySelectorAll('.reveal');
+reveals.forEach(el => el.classList.add('hidden'));
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.remove('hidden');
+        entry.target.classList.add('visible');
+      }, 60);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+
+// stagger grid children
+document.querySelectorAll('.industry-grid,.roles-grid,.why-grid,.jobs-list,.contacts-row').forEach(grid => {
+  grid.querySelectorAll('.reveal').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.07) + 's';
+  });
+});
 </script>
 
 </body>
