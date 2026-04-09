@@ -149,6 +149,16 @@
       letter-spacing: 1px;
     }
 
+    .hero-slogan {
+      margin-top: 28px;
+      font-size: clamp(13px, 2vw, 16px);
+      color: rgba(255,255,255,0.75);
+      line-height: 1.8;
+      text-align: center;
+      max-width: 540px;
+      animation: fadeDown 1s 0.45s ease both;
+    }
+
     .hero-scroll {
       margin-top: 48px;
       color: rgba(255,255,255,0.7);
@@ -553,7 +563,7 @@
   <div class="bubble" style="width:50px;height:50px;left:82%;animation-duration:11s;animation-delay:-2s;"></div>
   <div class="bubble" style="width:90px;height:90px;left:90%;animation-duration:18s;animation-delay:-9s;"></div>
 
-  <div class="hero-badge">🌸 你认识的下一个 TA，可能就在这</div>
+  <div class="hero-badge">🌸 消费品赛道专家·Solution 热招中</div>
   <h1 class="hero-title">来内推吧<br/><span>我们在找人</span></h1>
   <p class="hero-sub">
     美护·服饰·耐消·快消·交通 · 五大消费品赛道<br/>
@@ -572,6 +582,8 @@
       <div class="badge">DOUBLE 🔥</div>
     </div>
   </div>
+
+  <div class="hero-slogan">美护·服饰·耐消·快消·交通，总有一个赛道是你的主场<br/>推荐一个专家或 Solution，就是帮行业找到更好的人</div>
 
   <div class="hero-scroll">
     <span>继续探索</span>
@@ -708,29 +720,29 @@
     <div class="jobs-list">
       <div class="job-item reveal">
         <div class="job-info">
-          <div class="job-title">平台专家 · 消费品行业</div>
-          <div class="job-meta">美护 · 服饰 · 耐消 · 快消 · 交通 · 全赛道开放</div>
+          <div class="job-title">【热招】大消费行业平台专家</div>
+          <div class="job-meta">上海 · 广州 · 北京 · 深圳 · 5-10年经验 · 美护/服饰/耐消/快消/交通</div>
         </div>
         <a class="job-btn" href="https://hr.xiaohongshu.com/recommend/job-info/13926/XHSTOKEN-bVI3R05qaHU1c1RBWTF4Tmh4NkhWL2tHS3k4NVpDeDVsckNuMkU1NWJQeDdqSHNTZGwzR1RTdXRCVkJxT2RNTg==" target="_blank">立即推荐 →</a>
       </div>
       <div class="job-item reveal">
         <div class="job-info">
-          <div class="job-title">行业Solution · 消费品行业</div>
-          <div class="job-meta">美护 · 服饰 · 耐消 · 快消 · 交通 · 全赛道开放</div>
+          <div class="job-title">【热招】大消费行业Solution</div>
+          <div class="job-meta">上海 · 北京 · 广州 · 深圳 · 3-5年经验 · 美护/服饰/耐消/快消/交通</div>
         </div>
         <a class="job-btn" href="https://hr.xiaohongshu.com/recommend/job-info/19304/XHSTOKEN-ci9DRWVIMUtOazc0aGh0TUc0a3QyMjREVDQwYnd3RDZKV3V3d3BtUkZVaHpobnJUZDFncWNjKy9QdUhubUx5UA==" target="_blank">立即推荐 →</a>
       </div>
       <div class="job-item reveal">
         <div class="job-info">
-          <div class="job-title">运营 · 消费品行业</div>
-          <div class="job-meta">美护 · 服饰 · 耐消 · 快消 · 交通 · 全赛道开放</div>
+          <div class="job-title">【热招】大消费行业广告运营</div>
+          <div class="job-meta">广州 · 上海 · 5-10年经验 · 美护/快消/耐消/交通/服饰</div>
         </div>
         <a class="job-btn" href="https://hr.xiaohongshu.com/recommend/job-info/11594/XHSTOKEN-T09EcjQ0bG5jam8xSTMyYXQ4QWFKK014eUR0eHVFcFZQL0hNdFUyUkZtRHVJWldqWDFzWi9CUWh4V1l6UzN4aQ==" target="_blank">立即推荐 →</a>
       </div>
       <div class="job-item reveal">
         <div class="job-info">
-          <div class="job-title">策划 · 消费品行业</div>
-          <div class="job-meta">美护 · 快消 · 全赛道开放</div>
+          <div class="job-title">【热招】大消费行业整合营销</div>
+          <div class="job-meta">上海 · 北京 · 广州 · 深圳 · 1-3年经验 · 美护/耐消/服饰/快消/交通</div>
         </div>
         <a class="job-btn" href="https://hr.xiaohongshu.com/recommend/job-info/13699/XHSTOKEN-QTh3WUcwM2UwWHVwbkVpVTk2STlZbCsyRDFZaE9xSnpzK1pPdWZ2Y1lKc2tkM0NRc0VwNEdETThHN3JiOXVoQw==" target="_blank">立即推荐 →</a>
       </div>
@@ -801,27 +813,27 @@
 const INDUSTRIES = {
   '美护': {
     icon: '💄',
-    dept: '行业一部 · HRBP 瑾瑜',
+    dept: '商业化行业一部',
     desc: '覆盖细分赛道：欧莱雅、科技护肤、国货护肤、国货彩香、联合利华洗护、宝洁洗护、女护口腔、日化等。\n\n招募岗位：平台专家、运营、策划、行业Solution。\n\n美护是小红书最具心智优势的核心赛道，从大牌到新锐国货全线覆盖，种草到转化闭环完整，是美护品牌社媒营销的首选阵地。'
   },
   '服饰': {
     icon: '👗',
-    dept: '行业二部 · HRBP 蝶衣',
+    dept: '商业化行业二部',
     desc: '覆盖细分赛道：运动户外、运动户外新锐垂类、眼镜服配黄金珠宝、内衣、女装女鞋、童装等。\n\n招募岗位：平台专家、运营、行业Solution。\n\n服饰赛道穿搭内容社区氛围强，用户真实分享带动品牌自然曝光，是服饰品牌做种草与口碑的重要阵地。'
   },
   '耐消': {
     icon: '🏠',
-    dept: '行业三部 · HRBP 杨盈',
+    dept: '商业化行业三部',
     desc: '覆盖细分赛道：大家电、手机数码、手机通信、家居家装、家具建材等。\n\n招募岗位：平台专家、运营、行业Solution。\n\n耐消品客单价高、决策链路长，用户高度依赖内容评测与真实口碑，小红书是耐消品牌做品效合一的核心渠道。'
   },
   '快消': {
     icon: '🧃',
-    dept: '行业四部 · HRBP 贵音',
+    dept: '商业化行业四部',
     desc: '覆盖细分赛道：母婴食品、保健品、乳制品、餐饮零售、饮料酒水、母婴用品等。\n\n招募岗位：平台专家、运营、策划。\n\n快消品高频消费、新品迭代快，小红书用户对生活方式内容黏性高，北京/上海/广州多城开放，是快消品牌新品上市与品牌焕新的核心阵地。'
   },
   '交通': {
     icon: '🚗',
-    dept: '行业六部 · HRBP 蝶衣',
+    dept: '商业化行业六部',
     desc: '覆盖细分赛道：集团品牌、自主品牌、车后市场、豪华品牌等。\n\n招募岗位：平台专家、运营、行业Solution。\n\n汽车决策链路长、用户信任度要求高，小红书积累了大量真实用车、提车、测评内容，是汽车品牌做口碑建设与潜客蓄水的核心平台。'
   }
 };
